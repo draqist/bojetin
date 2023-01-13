@@ -30,17 +30,15 @@ The application also provides spending history over time, and allows you to set 
 
 #### Feedback and 
 
-If you have any feedback or need help using the Budget Tracker Application, please contact us at support@budgettracker.com[mailto:abdullahabdulfatah526@gmail.com] and we will be happy to assist you.
+If you have any feedback or need help using the Budget Tracker Application, please contact us at [support@budgettracker.com](mailto:abdullahabdulfatah526@gmail.com) and we will be happy to assist you.
 
 #### Contributing
 
-If you are interested in contributing to the development of the Budget Tracker Application, please contact us at contributions@budgettracker.com[https://draq.tech] to discuss how you can get involved.
+If you are interested in contributing to the development of the Budget Tracker Application, please contact us at [contributions@budgettracker.com](https://draq.tech) to discuss how you can get involved.
 
 #### License
 The Budget Tracker Application is released under the MIT license.
 
 #### Thank you
 Thank you for choosing the Budget Tracker Application for your budget tracking needs! We hope that you find it useful and easy to use.
-
-
 
