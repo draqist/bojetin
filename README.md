@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Budget Tracker Application
 
-## Getting Started
+Welcome to the Budget Tracker Application! This application is designed to help users track and manage their expenses and also save money for future expenses.
 
-First, run the development server:
+#### Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- User login and registration
+- Adding income and expenses
+- Setting budgets for different categories
+- Visualizing expenses and income in charts and graphs
+- Setting savings goals and tracking progress
+- Setting reminders for bills and other expenses
+- Connecting bank account and credit card
+- Sharing financial information with others
+- A dashboard that shows an overview of the user's current financial status
+- Ability to set budgets for future months
+- Importing transactions from bank accounts or other financial institutions
+- Setting limits on spending in certain categories
+- Spending history over time
+- Setting financial goals and tracking progress towards those goals
+- Alerts for when users are approaching their budget limit in a certain category
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Getting Started
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To get started using the Budget Tracker Application, you will need to create an account by registering with your email and password. Once you have logged in, you can start adding your income and expenses, set budgets for different categories, and start visualizing your spending habits.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+You can also set savings goals, connect your bank account and credit card, and share your financial information with others. The dashboard will give you an overview of your current financial status, and you can set budgets for future months, import transactions from bank accounts or other financial institutions, and set limits on spending in certain categories.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The application also provides spending history over time, and allows you to set financial goals and track your progress towards them. Alerts will be sent when you are approaching your budget limit in a certain category.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Feedback and 
 
-## Learn More
+If you have any feedback or need help using the Budget Tracker Application, please contact us at support@budgettracker.com[mailto:abdullahabdulfatah526@gmail.com] and we will be happy to assist you.
 
-To learn more about Next.js, take a look at the following resources:
+#### Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you are interested in contributing to the development of the Budget Tracker Application, please contact us at contributions@budgettracker.com[https://draq.tech] to discuss how you can get involved.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### License
+The Budget Tracker Application is released under the MIT license.
 
-## Deploy on Vercel
+#### Thank you
+Thank you for choosing the Budget Tracker Application for your budget tracking needs! We hope that you find it useful and easy to use.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
