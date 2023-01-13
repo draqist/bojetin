@@ -30,7 +30,7 @@ The application also provides spending history over time, and allows you to set 
 
 #### Feedback and 
 
-If you have any feedback or need help using the Budget Tracker Application, please contact us at support@budgettracker.com[mailto:abdullahabdulfatah526@gmail.com] and we will be happy to assist you.
+If you have any feedback or need help using the Budget Tracker Application, please contact us at (support@budgettracker.com)[mailto:abdullahabdulfatah526@gmail.com] and we will be happy to assist you.
 
 #### Contributing
 
