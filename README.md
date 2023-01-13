@@ -28,7 +28,7 @@ You can also set savings goals, connect your bank account and credit card, and s
 
 The application also provides spending history over time, and allows you to set financial goals and track your progress towards them. Alerts will be sent when you are approaching your budget limit in a certain category.
 
-#### Feedback and 
+#### Feedbacks
 
 If you have any feedback or need help using the Budget Tracker Application, please contact us at [support@budgettracker.com](mailto:abdullahabdulfatah526@gmail.com) and we will be happy to assist you.
 
