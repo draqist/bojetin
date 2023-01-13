@@ -5,13 +5,11 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { auth, provider } from "../../../utils/firebase";
 // import { auth } from '../../../utils/firebase';
 
-type Data = {
-  name: string
-}
+
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
   if (req.method === 'POST') {
     return await registerUser(req, res)
