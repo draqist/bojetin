@@ -5,12 +5,11 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../firebase";
 import { regUser } from "./../types";
-
 
 const signup = async (regData: regUser) => {
   try {
@@ -30,7 +29,8 @@ const registerUser = async (req: regUser, width: number) => {
   if (width >= 413 && authType === "google") {
     try {
       await signInWithPopup(auth, provider).then((sessionResult) => {
-        const credential = GoogleAuthProvider.credentialFromResult(sessionResult);
+        const credential =
+          GoogleAuthProvider.credentialFromResult(sessionResult);
         const user = sessionResult.user;
         const docRef = addDoc(collection(db, "users"), {
           firstName: "",
@@ -40,7 +40,7 @@ const registerUser = async (req: regUser, width: number) => {
           phoneNumber: user.phoneNumber,
           photoUrl: user.photoURL,
         });
-        console.log(user, docRef)
+        console.log(user, docRef);
         return { user, credential };
       });
     } catch (error) {
@@ -50,7 +50,7 @@ const registerUser = async (req: regUser, width: number) => {
     try {
       await signInWithRedirect(auth, provider).then(() => {
         getRedirectResult(auth).then((response) => {
-          const user = response?.user
+          const user = response?.user;
           console.log(user);
           // const docRef = addDoc(collection(db, "users"), user);
           // console.log(docRef);
@@ -66,7 +66,7 @@ const registerUser = async (req: regUser, width: number) => {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
           const user = userCredential.user;
-          console.log(user)
+          console.log(user);
           const docRef = addDoc(collection(db, "users"), {
             firstName: "",
             lastName: "",

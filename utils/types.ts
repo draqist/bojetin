@@ -10,7 +10,7 @@ export type savingsDataType = {
   amount: string;
   title: string;
   category: string;
-  startDate: Timestamp,
+  startDate: Timestamp;
   endDate: Timestamp;
   description?: string;
-}
+};
