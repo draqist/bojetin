@@ -1,4 +1,5 @@
 export type regUser = {
   email: string,
-  password: string
+  password: string,
+  authType?: string
 }

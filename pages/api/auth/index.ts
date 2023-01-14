@@ -1,10 +1,6 @@
-import { getRedirectResult, GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, getRedirectResult, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { auth, provider } from "../../../utils/firebase";
-// import { auth } from '../../../utils/firebase';
-
 
 
 export default async function handler(
@@ -23,7 +19,7 @@ export default async function handler(
 const registerUser = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email, password, authType } = req.body;
 
-  if (window.screen.width >= 413 && authType === 'google') {
+  if (typeof window != undefined && window.screen.width >= 413 && authType === 'google') {
     try {
       await signInWithPopup(auth, provider).then((sessionResult) => {
         const credential = GoogleAuthProvider.credentialFromResult(sessionResult)
@@ -33,7 +29,7 @@ const registerUser = async (req: NextApiRequest, res: NextApiResponse) => {
     } catch (error) {
       return res.status(500).json({ error });
     }
-  } else if (window.screen.width <= 412 && authType === 'google') {
+  } else if (typeof window != undefined && window.screen.width <= 412 && authType === 'google') {
     try {
       await signInWithRedirect(auth, provider).then(() => {
         getRedirectResult(auth).then((response) => {
