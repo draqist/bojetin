@@ -1,0 +1,5 @@
+const spendingHistory = () => {
+
+}
+
+export { spendingHistory }
