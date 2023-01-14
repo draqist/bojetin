@@ -1,10 +1,9 @@
 import { Button, Center } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import { useEffect, useState } from "react";
+import { logInUser, registerUser } from "../utils/UI-LOGIC/auth";
 import {
-  logInUser,
-  registerUser,
-  testdummy,
+  testdummy
 } from "../utils/UI-LOGIC/helpers.mini";
 
 const inter = Inter({ subsets: ["latin"] });
