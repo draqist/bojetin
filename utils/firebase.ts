@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyClBvwX1P-dVZfz0dCBEl5v_HPDp9WHlFQ",
@@ -15,9 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //  Providers for social login
 const provider = new GoogleAuthProvider();
+// Initialize firestore
+const db = getFirestore(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 // const analytics = getAnalytics(app);
 
-export { auth, provider };
+export { auth, db, provider };

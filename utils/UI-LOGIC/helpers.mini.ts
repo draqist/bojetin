@@ -5,15 +5,16 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
+  signInWithRedirect
 } from "firebase/auth";
-import { auth, provider } from "../firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db, provider } from "../firebase";
 import { regUser } from "./../types";
 
 const testdummy = {
-  email: "boomjay008@gmail.com",
+  email: "boomjay0008@gmail.com",
   password: "fejka1234",
-  // authType: "google",
+  authType: "google",
 };
 
 const signup = async (regData: regUser) => {
@@ -34,20 +35,30 @@ const registerUser = async (req: regUser, width: number) => {
   if (width >= 413 && authType === "google") {
     try {
       await signInWithPopup(auth, provider).then((sessionResult) => {
-        const credential =
-          GoogleAuthProvider.credentialFromResult(sessionResult);
+        const credential = GoogleAuthProvider.credentialFromResult(sessionResult);
         const user = sessionResult.user;
+        const docRef = addDoc(collection(db, "users"), {
+          firstName: "",
+          lastName: "",
+          displayName: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          photoUrl: user.photoURL,
+        });
+        console.log(user, docRef)
         return { user, credential };
       });
     } catch (error) {
-      // return res.status(500).json({ error });
       console.log(error);
     }
-  } else if (width <= 412 && authType === "google") {
+  } else if (width < 413 && authType === "google") {
     try {
       await signInWithRedirect(auth, provider).then(() => {
         getRedirectResult(auth).then((response) => {
-          const user = response?.user;
+          const user = response?.user
+          console.log(user);
+          // const docRef = addDoc(collection(db, "users"), user);
+          // console.log(docRef);
           return user;
         });
       });
@@ -55,17 +66,27 @@ const registerUser = async (req: regUser, width: number) => {
       // return res.status(500).json({ error });
       console.log(error);
     }
-  }
-  try {
-    await createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => {
-        const user = userCredential.user;
-        return user;
-      }
-    );
-  } catch (error) {
-    // return res.status(500).json({ error });
-    console.log(error);
+  } else {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          const user = userCredential.user;
+          console.log(user)
+          const docRef = addDoc(collection(db, "users"), {
+            firstName: "",
+            lastName: "",
+            displayName: user.displayName,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            photoUrl: user.photoURL,
+          });
+          console.log(user, "user ", "doc", docRef);
+          return user;
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
