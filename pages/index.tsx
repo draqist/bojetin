@@ -1,7 +1,11 @@
 import { Button, Center } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import { useEffect, useState } from "react";
-import { registerUser, testdummy } from "../utils/UI-LOGIC/helpers.mini";
+import {
+  logInUser,
+  registerUser,
+  testdummy,
+} from "../utils/UI-LOGIC/helpers.mini";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +31,9 @@ export default function Home() {
     <Center h="100vh">
       <Button onClick={() => registerUser(testdummy, width)}>
         CLICK ME TO TEST DUMMY{" "}
+      </Button>
+      <Button onClick={() => logInUser(testdummy)}>
+        CLICK ME TO LOG DUMMY{" "}
       </Button>
     </Center>
   );

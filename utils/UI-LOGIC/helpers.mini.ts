@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getRedirectResult,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
 } from "firebase/auth";
@@ -12,7 +13,7 @@ import { regUser } from "./../types";
 const testdummy = {
   email: "boomjay008@gmail.com",
   password: "fejka1234",
-  authType: "google",
+  // authType: "google",
 };
 
 const signup = async (regData: regUser) => {
@@ -68,4 +69,19 @@ const registerUser = async (req: regUser, width: number) => {
   }
 };
 
-export { signup, testdummy, registerUser };
+const logInUser = async (req: regUser) => {
+  const { email, password } = req;
+  try {
+    await signInWithEmailAndPassword(auth, email, password).then(
+      (loggedResponse) => {
+        const user = loggedResponse.user;
+        // return res.status(200).json(user)
+        return user;
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { signup, testdummy, registerUser, logInUser };
