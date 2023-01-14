@@ -37,8 +37,9 @@ If you have any feedback or need help using the Budget Tracker Application, plea
 If you are interested in contributing to the development of the Budget Tracker Application, please contact us at [contributions@budgettracker.com](https://draq.tech) to discuss how you can get involved.
 
 #### License
+
 The Budget Tracker Application is released under the MIT license.
 
 #### Thank you
-Thank you for choosing the Budget Tracker Application for your budget tracking needs! We hope that you find it useful and easy to use.
 
+Thank you for choosing the Budget Tracker Application for your budget tracking needs! We hope that you find it useful and easy to use.

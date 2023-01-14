@@ -1,5 +1,5 @@
 export type regUser = {
-  email: string,
-  password: string,
-  authType?: string
-}
+  email: string;
+  password: string;
+  authType?: string;
+};
