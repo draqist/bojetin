@@ -1,3 +1,4 @@
+import { info } from "console";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { savingsDataType } from "./../types";
@@ -25,4 +26,14 @@ const createSavingsPlan = async (savingsData: savingsDataType) => {
   }
 };
 
-export { testdummy, createSavingsPlan };
+
+const IncomeAndExpenseTag = (info: {tag: string}) => {
+  let tag;
+  if (info.tag === "savings") {
+    tag = "green"
+  } else if (info.tag === "expense") {
+    tag = "red"
+  }
+}
+
+export { testdummy, createSavingsPlan, IncomeAndExpenseTag };
