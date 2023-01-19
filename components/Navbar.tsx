@@ -115,7 +115,7 @@ const Navbar = () => {
                   </Heading>
                 </NextLink>
                 <NextLink href="/auth/register">
-                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
+                  <Heading fontSize="24px" as={"button"} textTransform="uppercase" onClick={onClose}>
                     Create account
                   </Heading>
                 </NextLink>
