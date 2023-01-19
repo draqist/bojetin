@@ -3,9 +3,10 @@ import {
   createUserWithEmailAndPassword,
   getRedirectResult,
   GoogleAuthProvider,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
+  signInWithRedirect
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../../firebase";
@@ -90,6 +91,9 @@ const logInUser = async (req: logInType) => {
   try {
     await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
       const user = loggedResponse.user;
+      sendEmailVerification(user).then((response) => {
+        console.log(response)
+      })
       console.log(user)
       return user;
     });
