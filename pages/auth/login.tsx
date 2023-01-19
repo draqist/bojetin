@@ -16,17 +16,21 @@ import {
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import { useTheme } from "../../data";
-import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
+import { logInValues } from "../../utils/UI-LOGIC/auth/auth";
+import { logInUser } from "../../utils/UI-LOGIC/auth/authBE";
 
 export default function Login() {
   const { bgcolor, text } = useTheme();
   const [visible, setVisibility] = useState(false);
 
   const toast = useToast();
+  const router = useRouter();
+
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
@@ -48,19 +52,19 @@ export default function Login() {
         <Box mt={["45px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
           <Box p="12px">
             <Formik
-              initialValues={initialValues}
-              validationSchema={registerValidation}
-              validateOnChange
+              initialValues={logInValues}
               onSubmit={(values, { resetForm }) => {
                 console.log(values);
+                logInUser(values);
                 toast({
-                  description: "User registered successfully",
+                  description: "User logged in successfully",
                   status: "success",
-                  duration: 3000,
+                  duration: 2000,
                   isClosable: true,
                   position: "top",
                 });
                 resetForm();
+                router.push("/");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (
@@ -146,7 +150,7 @@ export default function Login() {
         <Center w="full" pb="20px">
           <Text fontSize="12px">
             {" "}
-            <Link as={NextLink} href="/auth/forgot" color={"#006400"} textDecoration="underline">
+            <Link as={NextLink} href="/auth/forgot" color={"#b60808"} textDecoration="underline">
               {" "}
               Forgot password?{" "}
             </Link>{" "}

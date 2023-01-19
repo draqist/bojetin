@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -28,9 +28,9 @@ import { registerUser } from "../../utils/UI-LOGIC/auth/authBE";
 export default function Register() {
   const { bgcolor, text } = useTheme();
   const [visible, setVisibility] = useState(false);
-  const {width} = useWindow()
+  const { width } = useWindow();
   const toast = useToast();
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
@@ -56,17 +56,16 @@ export default function Register() {
               validationSchema={registerValidation}
               validateOnChange
               onSubmit={(values, { resetForm }) => {
-                console.log(values);
-                registerUser(values, width)
+                registerUser(values, width);
                 toast({
                   description: "User registered successfully",
                   status: "success",
-                  duration: 3000,
+                  duration: 5000,
                   isClosable: true,
                   position: "top",
                 });
                 resetForm();
-                router.push("/auth/login")
+                router.push("/auth/login");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (

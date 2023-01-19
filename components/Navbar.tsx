@@ -113,6 +113,7 @@ const Navbar = () => {
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
                     blog
                   </Heading>
+                </NextLink>
                 <NextLink href="/auth/register">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
                     Create account
@@ -122,7 +123,6 @@ const Navbar = () => {
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
                     Log In
                   </Heading>
-                </NextLink>
                 </NextLink>
               </VStack>
             </DrawerBody>

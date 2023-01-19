@@ -8,6 +8,11 @@ const initialValues = {
   phoneNumber: "",
 };
 
+const logInValues = {
+  email: "",
+  password: "",
+};
+
 const phoneRegExp = /^((\+234)|0)[789]\d{9}$/;
 
 const registerValidation = Yup.object().shape({
@@ -21,4 +26,4 @@ const registerValidation = Yup.object().shape({
     .min(11, "too short")
     .max(11, "too long"),
 });
-export { initialValues, registerValidation };
+export { initialValues, registerValidation, logInValues };

@@ -9,6 +9,10 @@ export type regUser = {
   authType?: string;
 };
 
+export type logInType = {
+  email: string;
+  password: string;
+};
 export type savingsDataType = {
   amount: string;
   title: string;

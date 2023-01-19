@@ -5,11 +5,11 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../../firebase";
-import { regUser } from "../../types";
+import { logInType, regUser } from "../../types";
 
 const signup = async (regData: regUser) => {
   try {
@@ -31,9 +31,12 @@ const registerUser = async (req: regUser, width: number) => {
       await signInWithPopup(auth, provider).then((sessionResult) => {
         const credential = GoogleAuthProvider.credentialFromResult(sessionResult);
         const user = sessionResult.user;
+        const { displayName } = user;
+        // @ts-ignore
+        const [firstName, lastName] = displayName?.split(" ");
         const docRef = addDoc(collection(db, "users"), {
-          firstName: "",
-          lastName: "",
+          firstName,
+          lastName,
           displayName: user.displayName,
           email: user.email,
           phoneNumber: user.phoneNumber,
@@ -73,21 +76,21 @@ const registerUser = async (req: regUser, width: number) => {
           phoneNumber,
           photoUrl: user.photoURL,
         });
-        console.log(user, "user ", "doc", docRef);
         return user;
       });
     } catch (error) {
       console.log(error);
+      return;
     }
   }
 };
 
-const logInUser = async (req: regUser) => {
+const logInUser = async (req: logInType) => {
   const { email, password } = req;
   try {
     await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
       const user = loggedResponse.user;
-      // return res.status(200).json(user)
+      console.log(user)
       return user;
     });
   } catch (error) {

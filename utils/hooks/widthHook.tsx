@@ -18,8 +18,9 @@ const useWindow = () => {
   }, []);
 
   return {
-    width, height
-  }
-}
+    width,
+    height,
+  };
+};
 
 export { useWindow };
