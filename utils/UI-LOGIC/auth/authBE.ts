@@ -5,11 +5,11 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
+  signInWithRedirect
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import { auth, db, provider } from "../firebase";
-import { regUser } from "./../types";
+import { auth, db, provider } from "../../firebase";
+import { regUser } from "../../types";
 
 const signup = async (regData: regUser) => {
   try {
@@ -24,7 +24,7 @@ const signup = async (regData: regUser) => {
 };
 
 const registerUser = async (req: regUser, width: number) => {
-  const { email, password, authType } = req;
+  const { email, password, firstName, lastName, phoneNumber, authType } = req;
 
   if (width >= 413 && authType === "google") {
     try {
@@ -66,11 +66,11 @@ const registerUser = async (req: regUser, width: number) => {
         const user = userCredential.user;
         console.log(user);
         const docRef = addDoc(collection(db, "users"), {
-          firstName: "",
-          lastName: "",
-          displayName: user.displayName,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
+          firstName,
+          lastName,
+          displayName: firstName + " " + lastName,
+          email,
+          phoneNumber,
           photoUrl: user.photoURL,
         });
         console.log(user, "user ", "doc", docRef);

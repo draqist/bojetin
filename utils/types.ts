@@ -3,6 +3,9 @@ import { Timestamp } from "firebase/firestore";
 export type regUser = {
   email: string;
   password: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
   authType?: string;
 };
 

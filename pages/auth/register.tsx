@@ -16,17 +16,21 @@ import {
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import { useTheme } from "../../data";
+import { useWindow } from "../../utils/hooks/widthHook";
 import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
+import { registerUser } from "../../utils/UI-LOGIC/auth/authBE";
 
 export default function Register() {
   const { bgcolor, text } = useTheme();
   const [visible, setVisibility] = useState(false);
-
+  const {width} = useWindow()
   const toast = useToast();
+  const router = useRouter()
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
@@ -53,6 +57,7 @@ export default function Register() {
               validateOnChange
               onSubmit={(values, { resetForm }) => {
                 console.log(values);
+                registerUser(values, width)
                 toast({
                   description: "User registered successfully",
                   status: "success",
@@ -61,6 +66,7 @@ export default function Register() {
                   position: "top",
                 });
                 resetForm();
+                router.push("/auth/login")
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (

@@ -84,7 +84,7 @@ const Navbar = () => {
             <Box h="1px" w="60px" bgColor={menu} />
           </VStack>
         </Button>
-        <Drawer onClose={onClose} isOpen={isOpen} size="full" placement="top">
+        <Drawer onClose={onClose} isOpen={isOpen} size="full" placement="left">
           <DrawerOverlay />
           <DrawerContent bg={bgcolor} textTransform="uppercase">
             <Center mt="24px" mb="55px">
@@ -104,25 +104,25 @@ const Navbar = () => {
             </DrawerHeader>
             <DrawerBody mt="95px" fontSize="40px" fontWeight="700">
               <VStack spacing="45px" alignItems="flex-start">
-                <NextLink href="/works">
+                <NextLink href="/about">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
                     About
-                  </Heading>
-                </NextLink>
-                <NextLink href="/resume">
-                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
-                    Create account
-                  </Heading>
-                </NextLink>
-                <NextLink href="/contacts">
-                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
-                    Log In
                   </Heading>
                 </NextLink>
                 <NextLink href="/blogs">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
                     blog
                   </Heading>
+                <NextLink href="/auth/register">
+                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
+                    Create account
+                  </Heading>
+                </NextLink>
+                <NextLink href="/auth/login">
+                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
+                    Log In
+                  </Heading>
+                </NextLink>
                 </NextLink>
               </VStack>
             </DrawerBody>
