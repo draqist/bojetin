@@ -14,16 +14,19 @@ import {
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useTheme } from "../../data";
-import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
+import { forgotValidation, forgotValues } from "../../utils/UI-LOGIC/auth/auth";
+import { forgotPassword } from "../../utils/UI-LOGIC/auth/authBE";
 
 export default function Forgot() {
   const { bgcolor, text } = useTheme();
   const [visible, setVisibility] = useState(false);
 
   const toast = useToast();
+  const router = useRouter();
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
@@ -45,19 +48,22 @@ export default function Forgot() {
         <Box mt={["45px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
           <Box p="12px">
             <Formik
-              initialValues={initialValues}
-              validationSchema={registerValidation}
+              initialValues={forgotValues}
+              validationSchema={forgotValidation}
               validateOnChange
               onSubmit={(values, { resetForm }) => {
                 console.log(values);
+                forgotPassword(values);
                 toast({
-                  description: "User registered successfully",
-                  status: "success",
+                  title: "Password Reset",
+                  description: "Password reset link has been sent to your email",
+                  status: "info",
                   duration: 3000,
                   isClosable: true,
                   position: "top",
                 });
                 resetForm();
+                router.push("/auth/login");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (

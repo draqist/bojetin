@@ -57,6 +57,7 @@ export default function Login() {
                 console.log(values);
                 logInUser(values);
                 toast({
+                  title: "User login",
                   description: "User logged in successfully",
                   status: "success",
                   duration: 2000,

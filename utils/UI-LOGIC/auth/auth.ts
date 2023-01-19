@@ -12,9 +12,15 @@ const logInValues = {
   email: "",
   password: "",
 };
+const forgotValues = {
+  email: "",
+};
 
 const phoneRegExp = /^((\+234)|0)[789]\d{9}$/;
 
+const forgotValidation = Yup.object().shape({
+  email: Yup.string().required("Kindly enter an email address").email("Email must be valid"),
+});
 const registerValidation = Yup.object().shape({
   firstName: Yup.string().required("Kindly enter your first name").min(4, "Must be at least 4 characters"),
   lastName: Yup.string().required("Kindly enter your last name").min(4, "Must be at least 4 characters"),
@@ -26,4 +32,4 @@ const registerValidation = Yup.object().shape({
     .min(11, "too short")
     .max(11, "too long"),
 });
-export { initialValues, registerValidation, logInValues };
+export { initialValues, registerValidation, forgotValues, logInValues, forgotValidation };

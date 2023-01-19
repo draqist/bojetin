@@ -4,13 +4,14 @@ import {
   getRedirectResult,
   GoogleAuthProvider,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../../firebase";
-import { logInType, regUser } from "../../types";
+import { forgotPassword, logInType, regUser } from "../../types";
 
 const signup = async (regData: regUser) => {
   try {
@@ -92,9 +93,9 @@ const logInUser = async (req: logInType) => {
     await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
       const user = loggedResponse.user;
       sendEmailVerification(user).then((response) => {
-        console.log(response)
-      })
-      console.log(user)
+        console.log(response);
+      });
+      console.log(user);
       return user;
     });
   } catch (error) {
@@ -102,4 +103,18 @@ const logInUser = async (req: logInType) => {
   }
 };
 
-export { logInUser, registerUser, signup };
+const forgotPassword = async (req: forgotPassword) => {
+  const { email } = req;
+  try {
+    await sendPasswordResetEmail(auth, email).then(() => {
+      // Password reset email sent!
+      console.log("Password reset");
+    });
+  } catch (error) {
+    // @ts-ignore
+    const errorCode = error?.code;
+    // @ts-ignore
+    const errorMessage = error?.message;
+  }
+};
+export { logInUser, registerUser, signup, forgotPassword };

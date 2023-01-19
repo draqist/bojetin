@@ -58,6 +58,7 @@ export default function Register() {
               onSubmit={(values, { resetForm }) => {
                 registerUser(values, width);
                 toast({
+                  title: "User registration",
                   description: "User registered successfully",
                   status: "success",
                   duration: 5000,

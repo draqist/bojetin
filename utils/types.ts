@@ -13,6 +13,9 @@ export type logInType = {
   email: string;
   password: string;
 };
+export type forgotPassword = {
+  email: string;
+};
 export type savingsDataType = {
   amount: string;
   title: string;
