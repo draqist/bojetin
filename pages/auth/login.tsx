@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -49,7 +49,7 @@ export default function Login() {
             </Box>
           </Box>
         </Center>
-        <Box mt={["45px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
+        <Box mt={["45px"]} mx="10px" border={`1px dashed ${text}`} borderRadius="12px">
           <Box p="12px">
             <Formik
               initialValues={logInValues}

@@ -49,7 +49,7 @@ export default function Register() {
             </Box>
           </Box>
         </Center>
-        <Box mt={["30px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
+        <Box mt={["30px"]} mx="10px" border={`1px dashed ${text}`} borderRadius="12px">
           <Box p="12px">
             <Formik
               initialValues={initialValues}
