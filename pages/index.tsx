@@ -26,12 +26,8 @@ export default function Home() {
   // @ts-ignore
   return (
     <Center h="100vh">
-      <Button onClick={() => registerUser(testdummy, width)}>
-        CLICK ME TO TEST DUMMY{" "}
-      </Button>
-      <Button onClick={() => logInUser(testdummy)}>
-        CLICK ME TO LOG DUMMY{" "}
-      </Button>
+      <Button onClick={() => registerUser(testdummy, width)}>CLICK ME TO TEST DUMMY </Button>
+      <Button onClick={() => logInUser(testdummy)}>CLICK ME TO LOG DUMMY </Button>
     </Center>
   );
 }

@@ -1,15 +1,22 @@
-import { useColorModeValue } from '@chakra-ui/react';
+import { useColorModeValue } from "@chakra-ui/react";
 
 export const themes = {
+  // 00008B
+  // 000080
+  // 00006B
+  // ======= text
+  // #D3D3D3
+  //#F5F5DC
+
   dark: {
-    bg: '#0B0F12',
-    text: 'white',
-    nav: '#0B0F12B2',
+    bg: "#2F4F4F",
+    text: "#F5F5DC",
+    nav: "#0B0F12B2",
   },
   light: {
-    bg: '#E6E6E6',
-    text: '#0B0F12',
-    nav: '#E6E6E6B2',
+    bg: "#E6E6E6",
+    text: "#333333",
+    nav: "#E6E6E6B2",
   },
 };
 
@@ -17,13 +24,10 @@ export const useTheme = () => {
   const nav = useColorModeValue(themes?.light.nav, themes?.dark.nav);
   const bgcolor = useColorModeValue(themes?.light.bg, themes?.dark.bg);
   const text = useColorModeValue(themes?.light.text, themes?.dark.text);
-  const close = useColorModeValue('/Close2.svg', '/Menuclose.svg');
-  const highlight = useColorModeValue('whatsapp.600', 'whatsapp.400');
-  const menu = useColorModeValue('#0B0F12', '#E6E6E6');
-  const signature = useColorModeValue(
-    'https://i.ibb.co/jvqmLVQ/Drac.png',
-    'https://i.ibb.co/Fgn4ts9/Drac1.png',
-  );
+  const close = useColorModeValue("/Close2.svg", "/Menuclose.svg");
+  const highlight = useColorModeValue("whatsapp.600", "whatsapp.400");
+  const menu = useColorModeValue("#0B0F12", "#E6E6E6");
+  const signature = useColorModeValue("https://i.ibb.co/jvqmLVQ/Drac.png", "https://i.ibb.co/Fgn4ts9/Drac1.png");
   return {
     nav,
     bgcolor,
@@ -54,14 +58,14 @@ export const quoteBlock = {
   },
 };
 
-export const myQuote = 'I create visually enthralling web interfaces';
+export const myQuote = "I create visually enthralling web interfaces";
 
 export interface projectinfo {
   data: any;
   id: string;
   title: string;
   description: string;
-  challenges: '';
+  challenges: "";
   code: string;
   link: string;
   image: string;
@@ -70,34 +74,34 @@ export interface projectinfo {
 
 export const resumedata = [
   {
-    date: 'date',
-    company: 'company',
-    role: 'role',
-    location: 'location',
+    date: "date",
+    company: "company",
+    role: "role",
+    location: "location",
   },
   {
-    date: 'JAN/2022 – MAY/2022',
-    company: 'CreatorH',
-    role: 'UI Engineer',
-    location: 'Remote',
+    date: "JAN/2022 – MAY/2022",
+    company: "CreatorH",
+    role: "UI Engineer",
+    location: "Remote",
   },
   {
-    date: 'FEB/2022 – MAR/2022',
-    company: 'NerdzFactory',
-    role: 'Technical Instructor',
-    location: 'Remote',
+    date: "FEB/2022 – MAR/2022",
+    company: "NerdzFactory",
+    role: "Technical Instructor",
+    location: "Remote",
   },
   {
-    date: 'OCT/2021 – DEC/2021',
-    company: 'Mbox',
-    role: 'Frontend Developer',
-    location: 'Remote',
+    date: "OCT/2021 – DEC/2021",
+    company: "Mbox",
+    role: "Frontend Developer",
+    location: "Remote",
   },
   {
-    date: 'SEP/2021 – OCT/2021',
-    company: 'HOTELS NG.',
-    role: 'Frontend Intern',
-    location: 'Remote',
+    date: "SEP/2021 – OCT/2021",
+    company: "HOTELS NG.",
+    role: "Frontend Intern",
+    location: "Remote",
   },
 ];
 

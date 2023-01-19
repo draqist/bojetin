@@ -29,8 +29,7 @@ const registerUser = async (req: regUser, width: number) => {
   if (width >= 413 && authType === "google") {
     try {
       await signInWithPopup(auth, provider).then((sessionResult) => {
-        const credential =
-          GoogleAuthProvider.credentialFromResult(sessionResult);
+        const credential = GoogleAuthProvider.credentialFromResult(sessionResult);
         const user = sessionResult.user;
         const docRef = addDoc(collection(db, "users"), {
           firstName: "",
@@ -63,22 +62,20 @@ const registerUser = async (req: regUser, width: number) => {
     }
   } else {
     try {
-      await createUserWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          const docRef = addDoc(collection(db, "users"), {
-            firstName: "",
-            lastName: "",
-            displayName: user.displayName,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            photoUrl: user.photoURL,
-          });
-          console.log(user, "user ", "doc", docRef);
-          return user;
-        }
-      );
+      await createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        const docRef = addDoc(collection(db, "users"), {
+          firstName: "",
+          lastName: "",
+          displayName: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          photoUrl: user.photoURL,
+        });
+        console.log(user, "user ", "doc", docRef);
+        return user;
+      });
     } catch (error) {
       console.log(error);
     }
@@ -88,13 +85,11 @@ const registerUser = async (req: regUser, width: number) => {
 const logInUser = async (req: regUser) => {
   const { email, password } = req;
   try {
-    await signInWithEmailAndPassword(auth, email, password).then(
-      (loggedResponse) => {
-        const user = loggedResponse.user;
-        // return res.status(200).json(user)
-        return user;
-      }
-    );
+    await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
+      const user = loggedResponse.user;
+      // return res.status(200).json(user)
+      return user;
+    });
   } catch (error) {
     console.log(error);
   }

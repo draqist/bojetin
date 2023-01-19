@@ -10,8 +10,7 @@ const testdummy = {
 };
 
 const createSavingsPlan = async (savingsData: savingsDataType) => {
-  const { amount, title, category, startDate, endDate, description } =
-    savingsData;
+  const { amount, title, category, startDate, endDate, description } = savingsData;
   try {
     await addDoc(collection(db, "savings"), {
       amount,
@@ -26,14 +25,13 @@ const createSavingsPlan = async (savingsData: savingsDataType) => {
   }
 };
 
-
-const IncomeAndExpenseTag = (info: {tag: string}) => {
+const IncomeAndExpenseTag = (info: { tag: string }) => {
   let tag;
   if (info.tag === "savings") {
-    tag = "green"
+    tag = "green";
   } else if (info.tag === "expense") {
-    tag = "red"
+    tag = "red";
   }
-}
+};
 
 export { testdummy, createSavingsPlan, IncomeAndExpenseTag };
