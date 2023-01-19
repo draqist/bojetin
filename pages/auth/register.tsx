@@ -45,12 +45,12 @@ export default function Register() {
             <Formik
               initialValues={initialValues}
               validationSchema={registerValidation}
-              validateOnBlur
+              validateOnChange
               onSubmit={(values) => {
                 console.log(values);
               }}
             >
-              {({ values, handleSubmit, handleChange, errors, touched }) => (
+              {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (
                 <form onSubmit={handleSubmit}>
                   <FormControl isInvalid={errors.email ? true : false}>
                     <FormLabel htmlFor="email" fontSize="14px">
@@ -67,9 +67,7 @@ export default function Register() {
                       variant={"outline"}
                       value={values.email}
                     />
-                    {errors.email && touched.email ? (
-                      <FormErrorMessage> Kindly enter a valid email address </FormErrorMessage>
-                    ) : null}
+                    {errors.email ? <FormErrorMessage fontSize={"11px"}> {errors.email} </FormErrorMessage> : null}
                     <FormHelperText fontSize={"10px"}> We&apos;ll never share your email.</FormHelperText>
                   </FormControl>
                   <FormControl isInvalid={errors.firstName ? true : false} mt="26px">
@@ -88,7 +86,7 @@ export default function Register() {
                       value={values.firstName}
                     />
                     {errors.firstName && touched.firstName ? (
-                      <FormErrorMessage> Kindly enter your first name </FormErrorMessage>
+                      <FormErrorMessage fontSize={"11px"}> {errors.firstName} </FormErrorMessage>
                     ) : null}
                   </FormControl>
                   <FormControl isInvalid={errors.lastName ? true : false} mt="26px">
@@ -107,7 +105,7 @@ export default function Register() {
                       value={values.lastName}
                     />
                     {errors.lastName && touched.lastName ? (
-                      <FormErrorMessage> Kindly enter your last name </FormErrorMessage>
+                      <FormErrorMessage fontSize={"11px"}> {errors.lastName} </FormErrorMessage>
                     ) : null}
                   </FormControl>
                   <FormControl isInvalid={errors.phoneNumber ? true : false} mt="26px">
@@ -121,12 +119,13 @@ export default function Register() {
                       focusBorderColor="gray.300"
                       borderColor="gray.300"
                       type="tel"
+                      // pattern="[+]{1}[0-9]{11,14}"
                       variant={"outline"}
                       name="phoneNumber"
                       value={values.phoneNumber}
                     />
                     {errors.phoneNumber && touched.phoneNumber ? (
-                      <FormErrorMessage> Kindly enter a valid phone number </FormErrorMessage>
+                      <FormErrorMessage fontSize={"11px"}> {errors.phoneNumber} </FormErrorMessage>
                     ) : null}
                   </FormControl>
                   <FormControl isInvalid={errors.password ? true : false} mt="26px">
@@ -152,7 +151,7 @@ export default function Register() {
                       />
                     </InputGroup>
                     {errors.password && touched.password ? (
-                      <FormErrorMessage> Kindly enter a strong password </FormErrorMessage>
+                      <FormErrorMessage fontSize={"11px"}> {errors.password} </FormErrorMessage>
                     ) : null}
                   </FormControl>
                   <Box h="1px" mt="20px" mb="10px" border={".5px dashed #c0c2c4"} />
@@ -167,7 +166,11 @@ export default function Register() {
                     _active={{
                       bgColor: "#0c810cdf",
                     }}
+                    _disabled={{
+                      bgColor: "#686868"
+                    }}
                     color="whiteAlpha.900"
+                    disabled={errors && isSubmitting ? true : false}
                   >
                     Create account
                   </Button>

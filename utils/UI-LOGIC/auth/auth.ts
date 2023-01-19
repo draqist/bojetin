@@ -8,16 +8,16 @@ const initialValues = {
   phoneNumber: "",
 };
 
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const phoneRegExp = /^((\+234)|0)[789]\d{9}$/
+
 
 const registerValidation = Yup.object().shape({
-  firstName: Yup.string().required("Required").min(4, "Atleast 4 characters"),
-  lastName: Yup.string().required("Required").min(4, "Atleast 4 characters"),
-  email: Yup.string().required("Required").email("email should be valid"),
-  password: Yup.string().required("Required").min(6, "Atleast 6 characters"),
+  firstName: Yup.string().required("Kindly enter your first name").min(4, "Must be at least 4 characters"),
+  lastName: Yup.string().required("Kindly enter your last name").min(4, "Must be at least 4 characters"),
+  email: Yup.string().required("Kindly enter an email address").email("Email must be valid"),
+  password: Yup.string().required("Kindly enter a password").min(6, "Must be at least 6 characters"),
   phoneNumber: Yup.string()
-    .required("required")
+    .required("Kindly enter your phone number")
     .matches(phoneRegExp, "Phone number is not valid")
     .min(11, "too short")
     .max(11, "too long"),
