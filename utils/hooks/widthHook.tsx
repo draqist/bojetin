@@ -1,10 +1,6 @@
-import { Center } from "@chakra-ui/react";
-import { Inter } from "@next/font/google";
 import { useEffect, useState } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+const useWindow = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
@@ -21,11 +17,10 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  // @ts-ignore
-  return (
-    <Center h="100vh">
-      {/* <Button onClick={() => registerUser(testdummy, width)}>CLICK ME TO TEST DUMMY </Button>
-      <Button onClick={() => logInUser(testdummy)}>CLICK ME TO LOG DUMMY </Button> */}
-    </Center>
-  );
-}
+  return {
+    width,
+    height,
+  };
+};
+
+export { useWindow };

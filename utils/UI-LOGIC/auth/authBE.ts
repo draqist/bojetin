@@ -3,13 +3,15 @@ import {
   createUserWithEmailAndPassword,
   getRedirectResult,
   GoogleAuthProvider,
+  sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import { auth, db, provider } from "../firebase";
-import { regUser } from "./../types";
+import { auth, db, provider } from "../../firebase";
+import { forgotPassword, logInType, regUser } from "../../types";
 
 const signup = async (regData: regUser) => {
   try {
@@ -24,17 +26,19 @@ const signup = async (regData: regUser) => {
 };
 
 const registerUser = async (req: regUser, width: number) => {
-  const { email, password, authType } = req;
+  const { email, password, firstName, lastName, phoneNumber, authType } = req;
 
   if (width >= 413 && authType === "google") {
     try {
       await signInWithPopup(auth, provider).then((sessionResult) => {
-        const credential =
-          GoogleAuthProvider.credentialFromResult(sessionResult);
+        const credential = GoogleAuthProvider.credentialFromResult(sessionResult);
         const user = sessionResult.user;
+        const { displayName } = user;
+        // @ts-ignore
+        const [firstName, lastName] = displayName?.split(" ");
         const docRef = addDoc(collection(db, "users"), {
-          firstName: "",
-          lastName: "",
+          firstName,
+          lastName,
           displayName: user.displayName,
           email: user.email,
           phoneNumber: user.phoneNumber,
@@ -63,41 +67,54 @@ const registerUser = async (req: regUser, width: number) => {
     }
   } else {
     try {
-      await createUserWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          const docRef = addDoc(collection(db, "users"), {
-            firstName: "",
-            lastName: "",
-            displayName: user.displayName,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            photoUrl: user.photoURL,
-          });
-          console.log(user, "user ", "doc", docRef);
-          return user;
-        }
-      );
+      await createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        const docRef = addDoc(collection(db, "users"), {
+          firstName,
+          lastName,
+          displayName: firstName + " " + lastName,
+          email,
+          phoneNumber,
+          photoUrl: user.photoURL,
+        });
+        return user;
+      });
     } catch (error) {
       console.log(error);
+      return;
     }
   }
 };
 
-const logInUser = async (req: regUser) => {
+const logInUser = async (req: logInType) => {
   const { email, password } = req;
   try {
-    await signInWithEmailAndPassword(auth, email, password).then(
-      (loggedResponse) => {
-        const user = loggedResponse.user;
-        // return res.status(200).json(user)
-        return user;
-      }
-    );
+    await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
+      const user = loggedResponse.user;
+      sendEmailVerification(user).then((response) => {
+        console.log(response);
+      });
+      console.log(user);
+      return user;
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-export { logInUser, registerUser, signup };
+const forgotPassword = async (req: forgotPassword) => {
+  const { email } = req;
+  try {
+    await sendPasswordResetEmail(auth, email).then(() => {
+      // Password reset email sent!
+      console.log("Password reset");
+    });
+  } catch (error) {
+    // @ts-ignore
+    const errorCode = error?.code;
+    // @ts-ignore
+    const errorMessage = error?.message;
+  }
+};
+export { logInUser, registerUser, signup, forgotPassword };

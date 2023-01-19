@@ -1,3 +1,4 @@
+import { info } from "console";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { savingsDataType } from "./../types";
@@ -9,8 +10,7 @@ const testdummy = {
 };
 
 const createSavingsPlan = async (savingsData: savingsDataType) => {
-  const { amount, title, category, startDate, endDate, description } =
-    savingsData;
+  const { amount, title, category, startDate, endDate, description } = savingsData;
   try {
     await addDoc(collection(db, "savings"), {
       amount,
@@ -25,4 +25,13 @@ const createSavingsPlan = async (savingsData: savingsDataType) => {
   }
 };
 
-export { testdummy, createSavingsPlan };
+const IncomeAndExpenseTag = (info: { tag: string }) => {
+  let tag;
+  if (info.tag === "savings") {
+    tag = "green";
+  } else if (info.tag === "expense") {
+    tag = "red";
+  }
+};
+
+export { testdummy, createSavingsPlan, IncomeAndExpenseTag };
