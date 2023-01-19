@@ -96,7 +96,7 @@ const Navbar = () => {
               <Flex justifyContent="space-between" alignItems="center">
                 <NextLink href="/" passHref>
                   <Text cursor="pointer" onClick={onClose}>
-                    dråQ™ portfolio
+                    BOJETIN™
                   </Text>
                 </NextLink>
                 <ColorModeSwitcher variant="ghost" close={onClose} />
@@ -106,17 +106,17 @@ const Navbar = () => {
               <VStack spacing="45px" alignItems="flex-start">
                 <NextLink href="/works">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
-                    works
+                    About
                   </Heading>
                 </NextLink>
                 <NextLink href="/resume">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
-                    resume
+                    Create account
                   </Heading>
                 </NextLink>
                 <NextLink href="/contacts">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
-                    contacts
+                    Log In
                   </Heading>
                 </NextLink>
                 <NextLink href="/blogs">

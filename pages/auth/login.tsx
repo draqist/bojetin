@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -22,7 +22,7 @@ import Navbar from "../../components/Navbar";
 import { useTheme } from "../../data";
 import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
 
-export default function Register() {
+export default function Login() {
   const { bgcolor, text } = useTheme();
   const [visible, setVisibility] = useState(false);
 
@@ -30,14 +30,14 @@ export default function Register() {
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
-      <Box mt={["30px", "", "70px", "70px", "90px"]}>
+      <Box mt={["100px", "", "70px", "70px", "90px"]}>
         <Center textAlign={["center"]}>
           <Box>
-            <Heading mb="4px"> Create an account </Heading>
+            <Heading mb="6px"> Login Securely </Heading>
             <Box>
-              <Text fontSize="xs" lineHeight="1.25">
-                Keep track of your income and expenses <br /> make smart decisions with
-                <Text as="span" fontWeight={"700"} color="#039203">
+              <Text fontSize="xs" lineHeight="5">
+                It's time to check your financial decisions on <br />
+                <Text as="span" color="#006400">
                   {" "}
                   Bojetin...
                 </Text>
@@ -45,7 +45,7 @@ export default function Register() {
             </Box>
           </Box>
         </Center>
-        <Box mt={["30px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
+        <Box mt={["45px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
           <Box p="12px">
             <Formik
               initialValues={initialValues}
@@ -82,64 +82,6 @@ export default function Register() {
                     />
                     {errors.email ? <FormErrorMessage fontSize={"11px"}> {errors.email} </FormErrorMessage> : null}
                     <FormHelperText fontSize={"10px"}> We&apos;ll never share your email.</FormHelperText>
-                  </FormControl>
-                  <FormControl isInvalid={errors.firstName ? true : false} mt="26px">
-                    <FormLabel htmlFor="text" fontSize="14px">
-                      First Name
-                    </FormLabel>
-                    <Field
-                      onChange={handleChange}
-                      as={Input}
-                      colorScheme={"gray"}
-                      focusBorderColor="gray.300"
-                      borderColor="gray.300"
-                      type="text"
-                      name="firstName"
-                      variant={"outline"}
-                      value={values.firstName}
-                    />
-                    {errors.firstName && touched.firstName ? (
-                      <FormErrorMessage fontSize={"11px"}> {errors.firstName} </FormErrorMessage>
-                    ) : null}
-                  </FormControl>
-                  <FormControl isInvalid={errors.lastName ? true : false} mt="26px">
-                    <FormLabel htmlFor="text" fontSize="14px">
-                      Last Name
-                    </FormLabel>
-                    <Field
-                      onChange={handleChange}
-                      as={Input}
-                      colorScheme={"gray"}
-                      focusBorderColor="gray.300"
-                      borderColor="gray.300"
-                      type="text"
-                      name="lastName"
-                      variant={"outline"}
-                      value={values.lastName}
-                    />
-                    {errors.lastName && touched.lastName ? (
-                      <FormErrorMessage fontSize={"11px"}> {errors.lastName} </FormErrorMessage>
-                    ) : null}
-                  </FormControl>
-                  <FormControl isInvalid={errors.phoneNumber ? true : false} mt="26px">
-                    <FormLabel htmlFor="tel" fontSize="14px">
-                      Phone Number
-                    </FormLabel>
-                    <Field
-                      onChange={handleChange}
-                      as={Input}
-                      colorScheme={"gray"}
-                      focusBorderColor="gray.300"
-                      borderColor="gray.300"
-                      type="tel"
-                      // pattern="[+]{1}[0-9]{11,14}"
-                      variant={"outline"}
-                      name="phoneNumber"
-                      value={values.phoneNumber}
-                    />
-                    {errors.phoneNumber && touched.phoneNumber ? (
-                      <FormErrorMessage fontSize={"11px"}> {errors.phoneNumber} </FormErrorMessage>
-                    ) : null}
                   </FormControl>
                   <FormControl isInvalid={errors.password ? true : false} mt="26px">
                     <FormLabel htmlFor="password" fontSize="14px">
@@ -185,19 +127,28 @@ export default function Register() {
                     color="whiteAlpha.900"
                     disabled={errors && isSubmitting ? true : false}
                   >
-                    Create account
+                    Login
                   </Button>
                 </form>
               )}
             </Formik>
           </Box>
         </Box>
-        <Center w="full" mt="16px" pb="20px">
+        <Center w="full" mt="16px" pb="10px">
           <Text fontSize="12px">
             {" "}
-            Have an account?{" "}
-            <Link as={NextLink} href="/auth/login" color={"#006400"} textDecoration="underline">
-              Sign in here
+            Don't have an account?{" "}
+            <Link as={NextLink} href="/auth/register" color={"#006400"} textDecoration="underline">
+              Sign up here
+            </Link>{" "}
+          </Text>
+        </Center>
+        <Center w="full" pb="20px">
+          <Text fontSize="12px">
+            {" "}
+            <Link as={NextLink} href="/auth/forgot" color={"#006400"} textDecoration="underline">
+              {" "}
+              Forgot password?{" "}
             </Link>{" "}
           </Text>
         </Center>

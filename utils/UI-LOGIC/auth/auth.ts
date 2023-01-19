@@ -8,8 +8,7 @@ const initialValues = {
   phoneNumber: "",
 };
 
-const phoneRegExp = /^((\+234)|0)[789]\d{9}$/
-
+const phoneRegExp = /^((\+234)|0)[789]\d{9}$/;
 
 const registerValidation = Yup.object().shape({
   firstName: Yup.string().required("Kindly enter your first name").min(4, "Must be at least 4 characters"),
