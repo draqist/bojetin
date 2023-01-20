@@ -2,9 +2,8 @@ import { Center } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Center h="100vh">
-      {/* <Button onClick={() => registerUser(testdummy, width)}>CLICK ME TO TEST DUMMY </Button>
-      <Button onClick={() => logInUser(testdummy)}>CLICK ME TO LOG DUMMY </Button> */}
+    <Center h="100vh" bgColor="#0B0F12" color="white">
+      WELCOME TO THE HOMEPAGE OF BOJETIN
     </Center>
   );
 }

@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -65,7 +65,7 @@ export default function Login() {
                   position: "top",
                 });
                 resetForm();
-                router.push("/");
+                router.replace("/");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (
