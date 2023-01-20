@@ -92,9 +92,11 @@ const logInUser = async (req: logInType) => {
   try {
     await signInWithEmailAndPassword(auth, email, password).then((loggedResponse) => {
       const user = loggedResponse.user;
-      sendEmailVerification(user).then((response) => {
-        console.log(response);
-      });
+      if (!user.emailVerified) {
+        sendEmailVerification(user).then((response) => {
+          console.log(response);
+        });
+      }
       console.log(user);
       return user;
     });

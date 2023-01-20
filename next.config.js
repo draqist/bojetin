@@ -12,7 +12,7 @@ const nextConfig = withPWA({
     return [
       {
         source: "/",
-        destination: "/auth/register",
+        destination: "/auth",
         permanent: true,
       },
     ];
