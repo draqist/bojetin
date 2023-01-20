@@ -24,7 +24,6 @@ import { useTheme } from "../../data";
 import { useWindow } from "../../utils/hooks/widthHook";
 import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
 import { registerUser } from "../../utils/UI-LOGIC/auth/authBE";
-import { timeChecker } from "../../utils/UI-LOGIC/helpers.mini";
 
 export default function Register() {
   const { bgcolor, text } = useTheme();
@@ -191,7 +190,8 @@ export default function Register() {
                       bgColor: "#686868",
                     }}
                     color="whiteAlpha.900"
-                    disabled={errors && isSubmitting ? true : false}
+                    // disabled={errors && isSubmitting ? true : false}
+                    isLoading={isSubmitting ? true : false}
                   >
                     Create account
                   </Button>

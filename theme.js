@@ -6,5 +6,6 @@ export const theme = extendTheme({
   fonts: {
     heading: `"Monument Extended", sans-serif`,
     body: `"DM Mono","TT Hoves", sans-serif`,
+    p: `"DM Mono","TT Hoves", sans-serif`,
   },
 });
