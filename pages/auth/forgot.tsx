@@ -45,7 +45,7 @@ export default function Forgot() {
             </Box>
           </Box>
         </Center>
-        <Box mt={["45px"]} mx="10px" border={"1px dashed black"} borderRadius="12px">
+        <Box mt={["45px"]} mx="10px" border={`1px dashed ${text}`} borderRadius="12px">
           <Box p="12px">
             <Formik
               initialValues={forgotValues}
