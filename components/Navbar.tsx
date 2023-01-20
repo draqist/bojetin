@@ -102,7 +102,7 @@ const Navbar = () => {
                 <ColorModeSwitcher variant="ghost" close={onClose} />
               </Flex>
             </DrawerHeader>
-            <DrawerBody mt="95px" fontSize="40px" fontWeight="700">
+            <DrawerBody mt="95px" fontSize="32px" fontWeight="700">
               <VStack spacing="45px" alignItems="flex-start">
                 <NextLink href="/about">
                   <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
@@ -115,7 +115,7 @@ const Navbar = () => {
                   </Heading>
                 </NextLink>
                 <NextLink href="/auth/register">
-                  <Heading as={"button"} textTransform="uppercase" onClick={onClose}>
+                  <Heading fontSize="24px" as={"button"} textTransform="uppercase" onClick={onClose}>
                     Create account
                   </Heading>
                 </NextLink>
