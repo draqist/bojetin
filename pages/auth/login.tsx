@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
