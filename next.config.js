@@ -11,11 +11,11 @@ const nextConfig = withPWA({
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/auth/register',
+        source: "/",
+        destination: "/auth/register",
         permanent: true,
       },
-    ]
+    ];
   },
 });
 
