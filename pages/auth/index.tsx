@@ -5,7 +5,7 @@ export default function Splash() {
   const router = useRouter();
   return (
     <Box w="100%" minH="100vh" bgColor="#0B0F12" pt="20px" px="14px">
-      <Center w="full" minH="390px" h="500px" borderRadius="16px" mt="0px" bgColor="green.400"></Center>
+      <Center w="full" minH="390px" h="500px" borderRadius="16px" bgColor="green.400"></Center>
 
       <Box my="40px" fontFamily={"DM Mono"}>
         <Text color="whiteAlpha.400"> Easy management </Text>
