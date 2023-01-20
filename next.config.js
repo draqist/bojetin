@@ -8,6 +8,15 @@ const withPWA = require("next-pwa")({
 
 const nextConfig = withPWA({
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/auth/register',
+        permanent: true,
+      },
+    ]
+  },
 });
 
 module.exports = nextConfig;

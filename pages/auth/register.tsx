@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -24,6 +24,7 @@ import { useTheme } from "../../data";
 import { useWindow } from "../../utils/hooks/widthHook";
 import { initialValues, registerValidation } from "../../utils/UI-LOGIC/auth/auth";
 import { registerUser } from "../../utils/UI-LOGIC/auth/authBE";
+import { timeChecker } from "../../utils/UI-LOGIC/helpers.mini";
 
 export default function Register() {
   const { bgcolor, text } = useTheme();
@@ -31,6 +32,7 @@ export default function Register() {
   const { width } = useWindow();
   const toast = useToast();
   const router = useRouter();
+  
   return (
     <Box bgColor={bgcolor} color={text} minH="100vh" fontFamily={"DM Mono"}>
       <Navbar />
@@ -43,7 +45,7 @@ export default function Register() {
                 Keep track of your income and expenses <br /> make smart decisions with
                 <Text as="span" fontWeight={"700"} color="#039203">
                   {" "}
-                  Bojetin...
+                  Bojetin... 
                 </Text>
               </Text>
             </Box>

@@ -34,4 +34,21 @@ const IncomeAndExpenseTag = (info: { tag: string }) => {
   }
 };
 
-export { testdummy, createSavingsPlan, IncomeAndExpenseTag };
+const timeChecker = () => {
+  var now = new Date();
+  var hrs = now.getHours()
+
+  var currentTimeofDay:string
+  if (hrs < 12) {
+    return currentTimeofDay = "morning"
+  }
+  else if (hrs >= 12 && hrs <= 17) {
+    return currentTimeofDay = "afternoon"
+  }
+  else if (hrs >= 17 && hrs <= 24) {
+    return currentTimeofDay = "evening"
+  }
+
+}
+
+export { testdummy, timeChecker,createSavingsPlan, IncomeAndExpenseTag };
