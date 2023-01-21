@@ -1,6 +1,6 @@
 
-export default function account() {
+export default function Account() {
   return (
-    <div>account</div>
+    <div>accounA</div>
   )
 }

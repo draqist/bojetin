@@ -1,6 +1,6 @@
 
-export default function savings() {
+export default function Savings() {
   return (
-    <div>savings</div>
+    <div>Savings</div>
   )
 }

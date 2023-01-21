@@ -1,6 +1,6 @@
 
-export default function expenses() {
+export default function Expenses() {
   return (
-    <div>expenses</div>
+    <div>Expenses</div>
   )
 }
