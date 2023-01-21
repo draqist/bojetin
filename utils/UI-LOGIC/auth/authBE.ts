@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
+  signInWithRedirect
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../../firebase";
@@ -97,7 +97,6 @@ const logInUser = async (req: logInType) => {
           console.log(response);
         });
       }
-      console.log(user);
       return user;
     });
   } catch (error) {
@@ -117,6 +116,7 @@ const forgotPassword = async (req: forgotPassword) => {
     const errorCode = error?.code;
     // @ts-ignore
     const errorMessage = error?.message;
+    return errorMessage;
   }
 };
 export { logInUser, registerUser, signup, forgotPassword };

@@ -5,7 +5,7 @@ import BottomNav from "./BottomNav";
 export default function AppLayout({ children }) {
   return (
     <>
-      <Box overflow="scroll" zIndex="1" bg="white" h="calc(100vh - 60px)" pt="16px" px="10px">
+      <Box overflow="scroll" zIndex="1" bg="white" h="calc(100vh - 60px)" pt="24px" px="16px">
         {children}
       </Box>
       <BottomNav />

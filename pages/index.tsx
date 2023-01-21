@@ -1,14 +1,16 @@
 import { Box, useTheme, useToast } from "@chakra-ui/react";
 import { sendEmailVerification } from "firebase/auth";
-import { useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import AppLayout from "../components/AppLayout";
-import { auth } from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 
 export default function Home() {
   const { bgcolor, text } = useTheme();
+  const [displayName, setName] = useState("");
   const toast = useToast();
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       if (!user?.emailVerified) {
         try {
           // @ts-ignore
@@ -21,24 +23,42 @@ export default function Home() {
               isClosable: true,
               position: "top",
             });
-          })
+          });
         } catch (error) {
           toast({
-              title: "Could not verify your email",
-              description: "Kindly check your email to confirm your account",
-              status: "error",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
+            // @ts-ignore
+            title: error.code,
+            description: "Kindly check your email to confirm your account",
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
         }
       }
-    })
-  }, [])
+      // @ts-ignore
+      const getUserDoc = async (user) => {
+        try {
+          const docRef = collection(db, "users");
+          const docSnap = await getDocs(docRef);
+          docSnap.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      const data = getUserDoc(user);
+      console.log(data);
+      // @ts-ignore
+      setName(user?.displayName);
+    });
+  }, []);
   return (
     <AppLayout>
       <Box h="100" bgColor={bgcolor} color={text}>
-        WELCOME TO THE HOMEPAGE OF BOJETIN
+        Hey, {displayName}
       </Box>
       {/* <BottomNav /> */}
     </AppLayout>
