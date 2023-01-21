@@ -1,6 +1,6 @@
 import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
-import  NextLink  from "next/link";
 
 export default function Splash() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Splash() {
           Spend, save and track all your expenses{" "}
         </Heading>
       </Box>
-      <Link as={NextLink} href="/auth/register">
+      <Link as={NextLink} _hover={{ textDecoration: "none" }} href="/auth/register">
         <Button w="full" boxShadow={"md"} color="black" bgColor="whiteAlpha.900" borderRadius="10px" h="46px">
           {" "}
           Get Started{" "}

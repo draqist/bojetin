@@ -1,6 +1,5 @@
+import AppLayout from "../components/AppLayout";
 
-export default function savings() {
-  return (
-    <div>savings</div>
-  )
+export default function Savings() {
+  return <AppLayout>Savings</AppLayout>;
 }

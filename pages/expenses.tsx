@@ -1,6 +1,5 @@
+import AppLayout from "../components/AppLayout";
 
-export default function expenses() {
-  return (
-    <div>expenses</div>
-  )
+export default function Expenses() {
+  return <AppLayout>Expenses</AppLayout>;
 }

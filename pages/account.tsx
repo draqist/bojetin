@@ -1,6 +1,5 @@
+import AppLayout from "../components/AppLayout";
 
-export default function account() {
-  return (
-    <div>account</div>
-  )
+export default function Account() {
+  return <AppLayout>account</AppLayout>;
 }
