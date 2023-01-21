@@ -1,6 +1,6 @@
-import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import  NextLink  from "next/link";
 
 export default function Splash() {
   const router = useRouter();
@@ -9,7 +9,7 @@ export default function Splash() {
       <Box py="20px" w="full" borderRadius="14px" bgColor="green.400">
         <Image src="/expense.png" h="417px" objectFit={"contain"} />
         <Box px="20px" mt="24px">
-          <Heading color={"#d7d7fa"} fontSize="20px">
+          <Heading color={"#ffffffda"} fontSize="20px">
             {" "}
             $ave up for your goal$ easily....{" "}
           </Heading>
@@ -23,15 +23,8 @@ export default function Splash() {
           Spend, save and track all your expenses{" "}
         </Heading>
       </Box>
-      <Link href="/auth/register">
-        <Button
-          w="full"
-          boxShadow={"md"}
-          color="black"
-          bgColor="whiteAlpha.900"
-          borderRadius="10px"
-          h="46px"
-        >
+      <Link as={NextLink} href="/auth/register">
+        <Button w="full" boxShadow={"md"} color="black" bgColor="whiteAlpha.900" borderRadius="10px" h="46px">
           {" "}
           Get Started{" "}
         </Button>
