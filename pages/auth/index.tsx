@@ -5,8 +5,8 @@ export default function Splash() {
   const router = useRouter();
   return (
     <Box w="100%" minH="100vh" bgColor="#0B0F12" pt="20px" px="14px">
-      <Box py="20px" w="full" minH="390px" h="490px" borderRadius="16px" bgColor="green.400">
-        <Image src="/images__1.png" objectFit={"contain"} />
+      <Box py="20px" w="full" borderRadius="16px" bgColor="green.400">
+        <Image src="/expense.png" h="417px" objectFit={"contain"} />
         <Box px="20px" mt="24px">
           <Heading color={"#d7d7fa"} fontSize="20px">
             {" "}
@@ -15,7 +15,7 @@ export default function Splash() {
         </Box>
       </Box>
 
-      <Box my="40px" fontFamily={"DM Mono"}>
+      <Box my="36px" fontFamily={"DM Mono"}>
         <Text color="whiteAlpha.400"> Easy management </Text>
         <Heading color="#939394" mt="10px">
           {" "}
