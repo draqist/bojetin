@@ -1,11 +1,19 @@
-import { Box, Button, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 export default function Splash() {
   const router = useRouter();
   return (
     <Box w="100%" minH="100vh" bgColor="#0B0F12" pt="20px" px="14px">
-      <Center w="full" minH="390px" h="500px" borderRadius="16px" bgColor="green.400"></Center>
+      <Box py="20px" w="full" minH="390px" h="490px" borderRadius="16px" bgColor="green.400">
+        <Image src="/images__1.png" objectFit={"contain"} />
+        <Box px="20px" mt="24px">
+          <Heading color={"#d7d7fa"} fontSize="20px">
+            {" "}
+            $ave up for your goal$ easily....{" "}
+          </Heading>
+        </Box>
+      </Box>
 
       <Box my="40px" fontFamily={"DM Mono"}>
         <Text color="whiteAlpha.400"> Easy management </Text>
