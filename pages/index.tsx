@@ -1,12 +1,14 @@
-import { Center, useTheme } from "@chakra-ui/react";
-import BottomNav from "../components/BottomNav";
+import { Box, useTheme } from "@chakra-ui/react";
+import AppLayout from "../components/AppLayout";
 
 export default function Home() {
   const { bgcolor, text } = useTheme();
   return (
-    <Center h="100vh" bgColor={bgcolor} color={text}>
-      WELCOME TO THE HOMEPAGE OF BOJETIN
-      <BottomNav />
-    </Center>
+    <AppLayout>
+      <Box h="100" bgColor={bgcolor} color={text}>
+        WELCOME TO THE HOMEPAGE OF BOJETIN
+      </Box>
+      {/* <BottomNav /> */}
+    </AppLayout>
   );
 }
