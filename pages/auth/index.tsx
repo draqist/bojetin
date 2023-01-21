@@ -1,13 +1,15 @@
-import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 
 export default function Splash() {
   const router = useRouter();
   return (
-    <Box w="100%" minH="100vh" bgColor="#0B0F12" pt="20px" px="14px">
+    <Box w="100%" h="100vh" bgColor="#0B0F12" pt="20px" px="14px">
       <Box py="20px" w="full" borderRadius="14px" bgColor="green.400">
-        <Image src="/expense.png" h="417px" objectFit={"contain"} />
+        <Center w="full">
+          <Image src="/expense.png" h="380px" objectFit={"contain"} />
+        </Center>
         <Box px="20px" mt="24px">
           <Heading color={"#ffffffda"} fontSize="20px">
             {" "}
@@ -16,7 +18,7 @@ export default function Splash() {
         </Box>
       </Box>
 
-      <Box my="36px" fontFamily={"DM Mono"}>
+      <Box mt="48px" mb="30px" fontFamily={"DM Mono"}>
         <Text color="whiteAlpha.400"> Easy management </Text>
         <Heading color="#939394" mt="10px">
           {" "}
