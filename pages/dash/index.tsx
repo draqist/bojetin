@@ -58,7 +58,7 @@ export default function Home() {
       // @ts-ignore
       setName(user?.displayName);
     });
-  }, []);
+  }, [auth]);
   return (
     <AppLayout>
       <Flex alignItems={"flex-end"} justifyContent="space-between" h="60px" color={text}>

@@ -10,7 +10,7 @@ import {
   Input,
   Link,
   Text,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -52,7 +52,7 @@ export default function Forgot() {
               validationSchema={forgotValidation}
               validateOnChange
               onSubmit={(values, { resetForm }) => {
-                console.log(values);
+                (values);
                 forgotPassword(values);
                 toast({
                   title: "Password Reset",
