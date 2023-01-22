@@ -32,7 +32,7 @@ export default function Splash() {
         variants={quoteBlock}
         initial="hidden"
         whileInView="visible"
-        mt="48px"
+        mt="32px"
         mb="30px"
         fontFamily={"DM Mono"}
       >
@@ -49,6 +49,12 @@ export default function Splash() {
         <Button w="full" boxShadow={"md"} color="black" bgColor="whiteAlpha.900" borderRadius="10px" h="46px">
           {" "}
           Get Started{" "}
+        </Button>
+      </Link>
+      <Link as={NextLink} _hover={{ textDecoration: "none" }} href="/auth/login">
+        <Button w="full" boxShadow={"md"} color="#f5f5dc" bgColor="#039203" mt="12px" borderRadius="10px" h="46px">
+          {" "}
+          Log In{" "}
         </Button>
       </Link>
     </Box>
