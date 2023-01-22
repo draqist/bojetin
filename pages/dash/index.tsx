@@ -23,7 +23,7 @@ export default function Home() {
               title: "Verification required",
               description: "Kindly check your email to confirm your account",
               status: "warning",
-              duration: 3000,
+              duration: 7000,
               isClosable: true,
               position: "top",
             });
