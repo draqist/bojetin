@@ -12,7 +12,7 @@ import {
   InputRightElement,
   Link,
   Text,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { Field, Formik } from "formik";
 import NextLink from "next/link";
@@ -56,7 +56,7 @@ export default function Login() {
               validationSchema={logInValidation}
               validateOnChange
               onSubmit={(values, { resetForm }) => {
-                (values);
+                values;
                 logInUser(values);
                 // toast({
                 //   title: "User login",

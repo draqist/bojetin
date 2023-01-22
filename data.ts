@@ -38,3 +38,25 @@ export const useTheme = () => {
     highlight,
   };
 };
+
+export const quote = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+};
+export const quoteBlock = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      staggerChildren: 0.1,
+      duration: 2,
+      ease: "circIn",
+    },
+  },
+};
+
+export const myQuote = "Spend, save and track all your expenses";
