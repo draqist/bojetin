@@ -40,11 +40,11 @@ const timeChecker = () => {
 
   var currentTimeofDay: string;
   if (hrs < 12) {
-    return (currentTimeofDay = "morning");
+    return (currentTimeofDay = "morning 🌅");
   } else if (hrs >= 12 && hrs <= 17) {
-    return (currentTimeofDay = "afternoon");
+    return (currentTimeofDay = "afternoon 🌞");
   } else if (hrs >= 17 && hrs <= 24) {
-    return (currentTimeofDay = "evening");
+    return (currentTimeofDay = "evening 🌙");
   }
 };
 

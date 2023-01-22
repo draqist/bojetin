@@ -67,7 +67,7 @@ export default function Login() {
                   position: "top",
                 });
                 resetForm();
-                router.replace("/");
+                router.replace("/dash");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (
