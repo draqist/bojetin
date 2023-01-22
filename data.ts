@@ -1,9 +1,9 @@
 import { useColorModeValue } from "@chakra-ui/react";
 
 export const themes = {
-  // 00008B
-  // 000080
-  // 00006B
+  // #00008B
+  // #000080
+  // #00006B
   // ======= text
   // #D3D3D3
   //#F5F5DC

@@ -1,4 +1,22 @@
-import { Avatar, Box, Flex, Heading, Link, Text, useToast } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  Heading,
+  Input,
+  Link,
+  Text,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import { sendEmailVerification } from "firebase/auth";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
@@ -11,6 +29,7 @@ import { useTime } from "../../utils/hooks/timeHook";
 export default function Home() {
   const { bgcolor, text } = useTheme();
   const [displayName, setName] = useState("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const currentTimeofDay = useTime();
   useEffect(() => {
@@ -75,14 +94,34 @@ export default function Home() {
           <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="md" />
         </Link>
       </Flex>
-      <Box h="120px" bgColor="#088fadb8" my="2.5rem" borderRadius="12px" p="24px" px="20px" boxShadow={"2xl"}>
-        <Heading fontWeight={"400"} color="whiteAlpha.600" fontSize="22px">
+      <Link as={NextLink} href="/savings/#chart" _hover={{ textDecoration: "none" }}>
+        <Box h="120px" bgColor="#088fadb8" mt="2.5rem" borderRadius="12px" p="24px" px="20px" boxShadow={"2xl"}>
+          <Heading fontWeight={"400"} color="whiteAlpha.600" fontSize="22px">
+            {" "}
+            Total savings
+          </Heading>
+          <Heading mt="8px" color="white" letterSpacing={"wider"}>
+            ₦100,000.00
+          </Heading>
+        </Box>
+      </Link>
+      <Flex justifyContent={"space-between"} mt="18px" alignItems="center">
+        <Text color="green.400" fontSize="12px">
           {" "}
-          Total savings
-        </Heading>
-        <Heading mt="8px" color="white" letterSpacing={"wider"}>
-          ₦100,000.00
-        </Heading>
+          Get your bread up !!!
+        </Text>
+        <Button size="xs" colorScheme={"blue"} onClick={onOpen}>
+          Quick save
+        </Button>
+      </Flex>
+      <Box mt="2.5rem">
+        <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
+          Recent Activities
+        </Text>
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
       </Box>
       <Box>
         <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
@@ -93,7 +132,35 @@ export default function Home() {
         <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
         <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
       </Box>
-      {/* <BottomNav /> */}
+      <Box>
+        <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
+          Recent Activities
+        </Text>
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+      </Box>
+      <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader fontSize={"18px"} textTransform="uppercase" color="gray.600">
+            Quick Save
+          </DrawerHeader>
+
+          <DrawerBody>
+            <Input placeholder="Type here..." />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue">Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </AppLayout>
   );
 }

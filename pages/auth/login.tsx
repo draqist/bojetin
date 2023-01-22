@@ -66,8 +66,8 @@ export default function Login() {
                 //   isClosable: true,
                 //   position: "top",
                 // });
-                resetForm();
                 router.replace("/dash");
+                resetForm();
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (
