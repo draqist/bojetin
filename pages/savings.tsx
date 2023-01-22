@@ -1,5 +1,6 @@
 import { Avatar, Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
+import ActivityCard from "../components/ActivityCard";
 import AppLayout from "../components/AppLayout";
 import { useTheme } from "../data";
 
@@ -37,6 +38,15 @@ export default function Savings() {
             ₦100,000.00
           </Heading>
         </Box>
+      </Box>
+      <Box>
+        <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
+          saving Activities
+        </Text>
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
       </Box>
     </AppLayout>
   );
