@@ -13,9 +13,7 @@ export default function Savings() {
             {" "}
             Savings,{" "}
           </Heading>
-          <Text fontSize="12px">
-            Check up on your saving progress
-          </Text>
+          <Text fontSize="12px">Check up on your saving progress</Text>
         </Box>
         <Link as={NextLink} href="/account" _hover={{ textDecoration: "none" }}>
           <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="md" />
@@ -35,7 +33,7 @@ export default function Savings() {
             {" "}
             Total Balance
           </Text>
-          <Heading mt="8px" fontSize="36px" color="#054e05b8" letterSpacing={"wider"}>
+          <Heading mt="8px" fontSize="36px" color="#048f04b8" letterSpacing={"wider"}>
             ₦100,000.00
           </Heading>
         </Box>
