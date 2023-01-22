@@ -1,66 +1,36 @@
-import { Box, useTheme, useToast } from "@chakra-ui/react";
-import { sendEmailVerification } from "firebase/auth";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import AppLayout from "../components/AppLayout";
-import { auth, db } from "../utils/firebase";
+import { Box, Button, Center, Heading, Image, Link, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 
-export default function Home() {
-  const { bgcolor, text } = useTheme();
-  const [displayName, setName] = useState("");
-  const toast = useToast();
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (!user?.emailVerified) {
-        try {
-          // @ts-ignore
-          sendEmailVerification(user).then(() => {
-            toast({
-              title: "Verification required",
-              description: "Kindly check your email to confirm your account",
-              status: "warning",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
-          });
-        } catch (error) {
-          toast({
-            // @ts-ignore
-            title: error.code,
-            description: "Kindly check your email to confirm your account",
-            status: "error",
-            duration: 3000,
-            isClosable: true,
-            position: "top",
-          });
-        }
-      }
-      // @ts-ignore
-      const getUserDoc = async (user) => {
-        try {
-          const docRef = collection(db, "users");
-          const docSnap = await getDocs(docRef);
-          docSnap.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      const data = getUserDoc(user);
-      console.log(data);
-      // @ts-ignore
-      setName(user?.displayName);
-    });
-  }, []);
+export default function Splash() {
+  const router = useRouter();
   return (
-    <AppLayout>
-      <Box h="100" bgColor={bgcolor} color={text}>
-        Hey, {displayName}
+    <Box w="100%" h="100vh" bgColor="#0B0F12" pt="20px" px="14px">
+      <Box py="20px" w="full" borderRadius="14px" bgColor="green.400">
+        <Center w="full">
+          <Image src="/expense.png" h="380px" objectFit={"contain"} />
+        </Center>
+        <Box px="20px" mt="24px">
+          <Heading color={"#ffffffda"} fontSize="20px">
+            {" "}
+            $ave up for your goal$ easily....{" "}
+          </Heading>
+        </Box>
       </Box>
-      {/* <BottomNav /> */}
-    </AppLayout>
+
+      <Box mt="48px" mb="30px" fontFamily={"DM Mono"}>
+        <Text color="whiteAlpha.400"> Easy management </Text>
+        <Heading color="#939394" mt="10px">
+          {" "}
+          Spend, save and track all your expenses{" "}
+        </Heading>
+      </Box>
+      <Link as={NextLink} _hover={{ textDecoration: "none" }} href="/auth/register">
+        <Button w="full" boxShadow={"md"} color="black" bgColor="whiteAlpha.900" borderRadius="10px" h="46px">
+          {" "}
+          Get Started{" "}
+        </Button>
+      </Link>
+    </Box>
   );
 }

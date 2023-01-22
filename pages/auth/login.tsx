@@ -21,7 +21,7 @@ import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Navbar from "../../components/Navbar";
 import { useTheme } from "../../data";
-import { logInValues } from "../../utils/UI-LOGIC/auth/auth";
+import { logInValidation, logInValues } from "../../utils/UI-LOGIC/auth/auth";
 import { logInUser } from "../../utils/UI-LOGIC/auth/authBE";
 
 export default function Login() {
@@ -53,6 +53,8 @@ export default function Login() {
           <Box p="12px">
             <Formik
               initialValues={logInValues}
+              validationSchema={logInValidation}
+              validateOnChange
               onSubmit={(values, { resetForm }) => {
                 console.log(values);
                 logInUser(values);
@@ -65,7 +67,7 @@ export default function Login() {
                   position: "top",
                 });
                 resetForm();
-                router.replace("/");
+                router.replace("/dash");
               }}
             >
               {({ values, handleSubmit, handleChange, errors, isSubmitting, touched }) => (

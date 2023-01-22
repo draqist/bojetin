@@ -43,8 +43,8 @@ export default function BottomNav() {
           textDecoration: "none",
         }}
         as={NextLink}
-        href="/"
-        color={router.pathname == "/" ? color : dorm_color}
+        href="/dash"
+        color={router.pathname == "/dash" ? color : dorm_color}
       >
         <Flex direction={"column"} w="100%" justifyContent="center" alignItems={"center"}>
           <BiHomeAlt fontSize="24px" />

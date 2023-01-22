@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
 } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db, provider } from "../../firebase";
