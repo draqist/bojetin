@@ -58,14 +58,14 @@ export default function Login() {
               onSubmit={(values, { resetForm }) => {
                 console.log(values);
                 logInUser(values);
-                toast({
-                  title: "User login",
-                  description: "User logged in successfully",
-                  status: "success",
-                  duration: 2000,
-                  isClosable: true,
-                  position: "top",
-                });
+                // toast({
+                //   title: "User login",
+                //   description: "User logged in successfully",
+                //   status: "success",
+                //   duration: 2000,
+                //   isClosable: true,
+                //   position: "top",
+                // });
                 resetForm();
                 router.replace("/dash");
               }}

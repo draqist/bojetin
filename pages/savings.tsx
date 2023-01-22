@@ -33,7 +33,7 @@ export default function Savings() {
             {" "}
             Total Balance
           </Text>
-          <Heading mt="8px" fontSize="36px" color="#048f04b8" letterSpacing={"wider"}>
+          <Heading mt="8px" fontSize="36px" color="#088fadb8" letterSpacing={"wider"}>
             ₦100,000.00
           </Heading>
         </Box>
