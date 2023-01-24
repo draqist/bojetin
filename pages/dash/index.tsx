@@ -10,14 +10,20 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  FormControl,
+  FormHelperText,
+  FormLabel,
   Heading,
   Input,
+  InputGroup,
+  InputRightElement,
   Link,
   Text,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { sendEmailVerification } from "firebase/auth";
+import { Field } from "formik";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import ActivityCard from "../../components/ActivityCard";
@@ -150,7 +156,108 @@ export default function Home() {
           </DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder="Type here..." />
+            <FormControl>
+              <FormLabel htmlFor="email" fontSize="14px">
+                Email address
+              </FormLabel>
+              <Field
+                // onChange={handleChange}
+                as={Input}
+                colorScheme={"gray"}
+                name="email"
+                focusBorderColor="gray.300"
+                borderColor="gray.300"
+                type="email"
+                variant={"outline"}
+                // value={values.email}
+              />
+              {/* {errors.email ? <FormErrorMessage fontSize={"11px"}> {errors.email} </FormErrorMessage> : null} */}
+              <FormHelperText fontSize={"10px"}> We&apos;ll never share your email.</FormHelperText>
+            </FormControl>
+            <FormControl mt="26px">
+              <FormLabel htmlFor="text" fontSize="14px">
+                First Name
+              </FormLabel>
+              <Field
+                // onChange={handleChange}
+                as={Input}
+                colorScheme={"gray"}
+                focusBorderColor="gray.300"
+                borderColor="gray.300"
+                type="text"
+                name="firstName"
+                variant={"outline"}
+                // value={values.firstName}
+              />
+              {/* {errors.firstName && touched.firstName ? (
+                <FormErrorMessage fontSize={"11px"}> {errors.firstName} </FormErrorMessage>
+              ) : null} */}
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="text" fontSize="14px">
+                Last Name
+              </FormLabel>
+              <Field
+                // onChange={handleChange}
+                as={Input}
+                colorScheme={"gray"}
+                focusBorderColor="gray.300"
+                borderColor="gray.300"
+                type="text"
+                name="lastName"
+                variant={"outline"}
+                // value={values.lastName}
+              />
+              {/* {errors.lastName && touched.lastName ? (
+                <FormErrorMessage fontSize={"11px"}> {errors.lastName} </FormErrorMessage>
+              ) : null} */}
+            </FormControl>
+            <FormControl mt="26px">
+              <FormLabel htmlFor="tel" fontSize="14px">
+                Phone Number
+              </FormLabel>
+              <Field
+                // onChange={handleChange}
+                as={Input}
+                colorScheme={"gray"}
+                focusBorderColor="gray.300"
+                borderColor="gray.300"
+                type="tel"
+                // pattern="[+]{1}[0-9]{11,14}"
+                variant={"outline"}
+                name="phoneNumber"
+                // value={values.phoneNumber}
+              />
+              {/* {errors.phoneNumber && touched.phoneNumber ? (
+                <FormErrorMessage fontSize={"11px"}> {errors.phoneNumber} </FormErrorMessage>
+              ) : null} */}
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="password" fontSize="14px">
+                Password
+              </FormLabel>
+              <InputGroup>
+                <Field
+                  // onChange={handleChange}
+                  as={Input}
+                  colorScheme={"gray"}
+                  focusBorderColor="gray.300"
+                  borderColor="gray.300"
+                  // type={visible ? "text" : "password"}
+                  variant={"outline"}
+                  name="password"
+                  // value={values.password}
+                />
+                {/* eslint-disable-next-line react/no-children-prop */}
+                <InputRightElement
+                // onClick={() => setVisibility(!visible)}
+                // children={visible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                />
+              </InputGroup>
+              {/* {errors.password && touched.password ? (
+                <FormErrorMessage fontSize={"11px"}> {errors.password} </FormErrorMessage>
+              ) : null} */}
+            </FormControl>
           </DrawerBody>
 
           <DrawerFooter>
