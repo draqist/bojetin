@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import ActivityCard from "../components/ActivityCard";
 import AppLayout from "../components/AppLayout";
@@ -38,6 +38,19 @@ export default function Savings() {
             ₦100,000.00
           </Heading>
         </Box>
+      </Box>
+      <Box mb="1.75rem">
+        <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
+          GET TO SAVING
+        </Text>
+        <Flex justifyContent={"space-between"} alignItems="center" w="full" direction="column" borderRadius=".5rem" bgColor="#088fad36" h="120px" p="24px">
+          <Box>
+            <Heading fontSize={"20px"}> Toss a coin into your wallet </Heading>
+          </Box>
+          <Box>
+            <Image src="" alt="saving icon"/>
+          </Box>
+        </Flex>
       </Box>
       <Box>
         <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
