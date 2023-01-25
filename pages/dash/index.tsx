@@ -160,9 +160,8 @@ export default function Home() {
               <FormLabel htmlFor="email" fontSize="14px">
                 Email address
               </FormLabel>
-              <Field
+              <Input
                 // onChange={handleChange}
-                as={Input}
                 colorScheme={"gray"}
                 name="email"
                 focusBorderColor="gray.300"
@@ -178,9 +177,8 @@ export default function Home() {
               <FormLabel htmlFor="text" fontSize="14px">
                 First Name
               </FormLabel>
-              <Field
+              <Input
                 // onChange={handleChange}
-                as={Input}
                 colorScheme={"gray"}
                 focusBorderColor="gray.300"
                 borderColor="gray.300"
@@ -197,9 +195,8 @@ export default function Home() {
               <FormLabel htmlFor="text" fontSize="14px">
                 Last Name
               </FormLabel>
-              <Field
+              <Input
                 // onChange={handleChange}
-                as={Input}
                 colorScheme={"gray"}
                 focusBorderColor="gray.300"
                 borderColor="gray.300"
@@ -216,9 +213,8 @@ export default function Home() {
               <FormLabel htmlFor="tel" fontSize="14px">
                 Phone Number
               </FormLabel>
-              <Field
+              <Input
                 // onChange={handleChange}
-                as={Input}
                 colorScheme={"gray"}
                 focusBorderColor="gray.300"
                 borderColor="gray.300"
@@ -237,9 +233,8 @@ export default function Home() {
                 Password
               </FormLabel>
               <InputGroup>
-                <Field
+                <Input
                   // onChange={handleChange}
-                  as={Input}
                   colorScheme={"gray"}
                   focusBorderColor="gray.300"
                   borderColor="gray.300"
