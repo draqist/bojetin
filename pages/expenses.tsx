@@ -4,7 +4,7 @@ import ActivityCard from "../components/ActivityCard";
 import AppLayout from "../components/AppLayout";
 import { useTheme } from "../data";
 
-export default function Savings() {
+export default function Expenses() {
   const { text } = useTheme();
   return (
     <AppLayout>
@@ -12,9 +12,11 @@ export default function Savings() {
         <Box>
           <Heading fontSize="24px" color={"gray.600"}>
             {" "}
-            Savings,{" "}
+            Expenses{" "}
           </Heading>
-          <Text fontSize="12px">Check up on your saving progress</Text>
+          <Text letterSpacing={0} fontSize="12px">
+            Here's what you have spent so far
+          </Text>
         </Box>
         <Link as={NextLink} href="/account" _hover={{ textDecoration: "none" }}>
           <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="md" />
@@ -32,16 +34,16 @@ export default function Savings() {
         >
           <Text fontWeight={"400"} color="gray.600" fontSize="14px" textTransform={"uppercase"}>
             {" "}
-            Total Balance
+            Monthly Expense
           </Text>
-          <Heading mt="8px" fontSize="36px" color="#088fadb8" letterSpacing={"wider"}>
+          <Heading mt="8px" fontSize="36px" color="#f10909b8" letterSpacing={"wider"}>
             ₦100,000.00
           </Heading>
         </Box>
       </Box>
       <Box>
         <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
-          saving Activities
+          Recent Expenses
         </Text>
         <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
         <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
