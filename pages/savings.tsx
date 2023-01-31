@@ -12,7 +12,7 @@ export default function Savings() {
         <Box>
           <Heading fontSize="24px" color={"gray.600"}>
             {" "}
-            Savings,{" "}
+            Savings{" "}
           </Heading>
           <Text fontSize="12px">Check up on your saving progress</Text>
         </Box>
@@ -43,14 +43,33 @@ export default function Savings() {
         <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
           GET TO SAVING
         </Text>
-        <Flex justifyContent={"space-between"} alignItems="center" w="full" direction="column" borderRadius=".5rem" bgColor="#088fad36" h="120px" p="24px">
-          <Box>
-            <Heading fontSize={"20px"}> Toss a coin into your wallet </Heading>
-          </Box>
-          <Box>
-            <Image src="" alt="saving icon"/>
-          </Box>
-        </Flex>
+        <Link
+          _hover={{
+            textDecoration: "none",
+          }}
+        >
+          <Flex
+            justifyContent={"space-between"}
+            alignItems="flex-end"
+            w="full"
+            direction="column"
+            borderRadius=".5rem"
+            bgColor="#088fad36"
+            h="120px"
+            p="18px"
+            py="10px"
+          >
+            <Box>
+              <Heading color="gray.500" fontSize={"22px"}>
+                {" "}
+                Toss a coin into your wallet{" "}
+              </Heading>
+            </Box>
+            <Box w="78px" marginTop={-8}>
+              <Image src="/coin1.png" alt="saving icon" />
+            </Box>
+          </Flex>
+        </Link>
       </Box>
       <Box>
         <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">

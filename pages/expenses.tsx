@@ -12,9 +12,11 @@ export default function Expenses() {
         <Box>
           <Heading fontSize="24px" color={"gray.600"}>
             {" "}
-            Expenses,{" "}
+            Expenses{" "}
           </Heading>
-          <Text letterSpacing={0} fontSize="12px">Here's what you have spent so far</Text>
+          <Text letterSpacing={0} fontSize="12px">
+            Here's what you have spent so far
+          </Text>
         </Box>
         <Link as={NextLink} href="/account" _hover={{ textDecoration: "none" }}>
           <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="md" />
