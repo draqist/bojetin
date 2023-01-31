@@ -3,8 +3,9 @@ import { sendEmailVerification, signOut } from "firebase/auth";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { BsCreditCard2Back, BsTelephone } from "react-icons/bs";
 import { IoPersonOutline } from "react-icons/io5";
-import ActivityCard from "../components/ActivityCard";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import AppLayout from "../components/AppLayout";
 import { useTheme } from "../data";
 import { auth } from "../utils/firebase";
@@ -89,27 +90,65 @@ export default function Account() {
       </Box>
       <Box>
         <Flex
-          // h="120px"
-          my="2.5rem"
+          mb="1rem"
           p="1rem"
+          px="1.25rem"
           borderTopRadius={"8px"}
           borderBottomRightRadius="8px"
           border="1px solid #e2e8f0"
           boxShadow="sm"
         >
-          <Icon as={IoPersonOutline} mr="8px" fontSize={"20px"} />
+          <Icon as={IoPersonOutline} mr="1rem" fontSize={"20px"} />
           <Text fontWeight={"400"} color="gray.600" fontSize="12px">
             {" "}
             Account settings
           </Text>
         </Flex>
-        <Text textTransform={"uppercase"} mb="1rem" fontSize="12px" color="">
-          saving Activities
-        </Text>
-        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
-        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
-        <ActivityCard type="/savings.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
-        <ActivityCard type="/minus.png" desc="Completed challenge. [Setup & Vibes ]" time="3 mths ago" />
+        <Flex
+          mb="1rem"
+          p="1rem"
+          px="1.25rem"
+          borderTopRadius={"8px"}
+          borderBottomRightRadius="8px"
+          border="1px solid #e2e8f0"
+          boxShadow="sm"
+        >
+          <Icon as={BsCreditCard2Back} mr="1rem" fontSize={"20px"} />
+          <Text fontWeight={"400"} color="gray.600" fontSize="12px">
+            {" "}
+            My Card & Banks
+          </Text>
+        </Flex>
+        <Flex
+          mb="1rem"
+          p="1rem"
+          px="1.25rem"
+          borderTopRadius={"8px"}
+          borderBottomRightRadius="8px"
+          border="1px solid #e2e8f0"
+          boxShadow="sm"
+        >
+          <Icon as={RiMoneyDollarCircleLine} mr="1rem" fontSize={"20px"} />
+          <Text fontWeight={"400"} color="gray.600" fontSize="12px">
+            {" "}
+            Withdraw fund
+          </Text>
+        </Flex>
+        <Flex
+          mb="1rem"
+          p="1rem"
+          px="1.25rem"
+          borderTopRadius={"8px"}
+          borderBottomRightRadius="8px"
+          border="1px solid #e2e8f0"
+          boxShadow="sm"
+        >
+          <Icon as={BsTelephone} mr="1rem" fontSize={"20px"} />
+          <Text fontWeight={"400"} color="gray.600" fontSize="12px">
+            {" "}
+            Contact us
+          </Text>
+        </Flex>
       </Box>
       <Button
         w="full"
