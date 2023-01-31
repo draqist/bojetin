@@ -1,9 +1,9 @@
-import { Avatar, Box, Button, Flex, Heading, Icon, Link, Text, useToast } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Heading, Icon, Text, useToast } from "@chakra-ui/react";
 import { sendEmailVerification, signOut } from "firebase/auth";
-import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsCreditCard2Back, BsTelephone } from "react-icons/bs";
+import { IoIosLogOut } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import AppLayout from "../components/AppLayout";
@@ -58,28 +58,11 @@ export default function Account() {
           {/* <Text fontSize="12px"> {displayName}</Text> */}
           <Text fontSize="12px"> Abdullah Abdulfatah Omobolaji</Text>
         </Box>
-        <Link as={NextLink} href="/account" _hover={{ textDecoration: "none" }}>
+        {/* <Link as={NextLink} href="/account" _hover={{ textDecoration: "none" }}>
           <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="md" />
-        </Link>
+        </Link> */}
       </Flex>
       <Flex alignItems={"center"} justifyContent="center" my="48px" mb="30px" h="144px">
-        {/* <Box
-          // h="120px"
-          my="2.5rem"
-          p="1rem"
-          borderTopRadius={"8px"}
-          borderBottomRightRadius="8px"
-          border="1px solid #e2e8f0"
-          boxShadow="sm"
-        >
-          <Text fontWeight={"400"} color="gray.600" fontSize="14px" textTransform={"uppercase"}>
-            {" "}
-            Total Balance
-          </Text>
-          <Heading mt="8px" fontSize="36px" color="#088fadb8" letterSpacing={"wider"}>
-            ₦100,000.00
-          </Heading>
-        </Box> */}
         <Avatar name="Abdullah Abdulfatah " src={"https://bit.ly/kent-c-dodds"} size="2xl" />
       </Flex>
       <Box mb="1.75rem">
@@ -150,9 +133,14 @@ export default function Account() {
           </Text>
         </Flex>
       </Box>
-      <Button
-        w="full"
-        colorScheme="red"
+      <Flex
+        mb="1rem"
+        p="1rem"
+        px="1.25rem"
+        border="1px solid #ff000073"
+        borderTopRadius={"8px"}
+        borderBottomRightRadius="8px"
+        boxShadow="md"
         onClick={() => {
           signOut(auth).then(() => {
             toast({
@@ -167,8 +155,12 @@ export default function Account() {
           });
         }}
       >
-        Logout
-      </Button>
+        <Icon as={IoIosLogOut} mr="1rem" fontSize={"24px"} color="red" />
+        <Text fontWeight={"800"} fontSize="14px" color="red">
+          {" "}
+          Log out
+        </Text>
+      </Flex>
     </AppLayout>
   );
 }
