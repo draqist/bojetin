@@ -35,7 +35,7 @@ import { useTime } from "../../utils/hooks/timeHook";
 export default function Home() {
   const { bgcolor, text } = useTheme();
   const [displayName, setName] = useState("");
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure(); 
   const toast = useToast();
   const currentTimeofDay = useTime();
   useEffect(() => {
@@ -65,21 +65,10 @@ export default function Home() {
           });
         }
       }
-      // @ts-ignore
-      // const getUserDoc = async (user) => {
-      //   try {
-      //     const docRef = collection(db, "users");
-      //     const docSnap = await getDocs(docRef);
-      //     docSnap.forEach((doc) => {
-      //       // doc.data() is never undefined for query doc snapshots
-      //       console.log(doc.id, " => ", doc.data());
-      //     });
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // };
-      // const data = getUserDoc(user);
-      // console.log(data);
+
+
+
+
       // @ts-ignore
       setName(user?.displayName);
     });
